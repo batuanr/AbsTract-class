@@ -1,20 +1,18 @@
 package circle;
 
-public class ComparableCircle extends Circle implements Comparable{
+import java.util.Comparator;
 
-    public ComparableCircle(double radius) {
-        super(radius);
+public class ComparableCircle implements Comparator<Circle> {
+
+    public ComparableCircle() {
     }
 
     @Override
-    public int compareTo(ComparableCircle o) {
-        if (getRadius() > o.getRadius()) return 1;
-        else if (getRadius() < o.getRadius()) return -1;
-        else return 1;
+    public int compare(Circle c1, Circle c2) {
+        if (c1.getRadius() > c2.getRadius()) return 1;
+        else if (c1.getRadius() < c2.getRadius()) return -1;
+        else return 0;
     }
 
-    @Override
-    public String toString() {
-        return "ComparableCircle radius " + getRadius();
-    }
+
 }

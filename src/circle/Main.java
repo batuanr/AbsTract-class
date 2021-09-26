@@ -1,16 +1,23 @@
 package circle;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Main {
     public static void main(String[] args) {
-        ComparableCircle circle1 = new ComparableCircle(5.5);
-        ComparableCircle circle2 = new ComparableCircle(5);
-        ComparableCircle circle3 = new ComparableCircle(6.5);
-        ComparableCircle[] circles = {circle1, circle2, circle3};
-        for (ComparableCircle c: circles){
+        Circle[] circles = new Circle[3];
+        circles[0] = new Circle(5.5);
+        circles[1] = new Circle(5);
+        circles[2] = new Circle(6.5);
+
+        for (Circle c: circles){
             System.out.println(c);
         }
-        for (int i = 0; i < circles.length-1; i++) {
-            circles[i].compareTo(circles[i+1]);
+        Comparator comparator = new ComparableCircle();
+        Arrays.sort(circles, comparator);
+
+        for (Circle c: circles){
+            System.out.println(c);
         }
     }
 }
